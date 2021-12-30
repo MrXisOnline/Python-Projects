@@ -1,0 +1,23 @@
+body{
+	background-color: #F0F8FF;
+	margin: 0%;
+}
+#body_div{
+	background-color: #00CED1;
+	height: 100px;
+	margin: 0%;
+}
+#post_div{
+	padding-top: : 30px;
+	margin: 0px auto 0px auto;
+	background-color: #F0F8FF;
+	position: relative;
+	bottom: 50px;
+	width: 800px;
+}
+.post{
+	background-color: white;
+	text-align: center;
+	margin-bottom: 30px;
+	padding: 50px;
+}

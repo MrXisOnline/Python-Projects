@@ -1,0 +1,22 @@
+from tkinter import *
+def calculate():
+	m = int(mile.get())
+	k = str(round(m*1.6,2))
+	km.config(text=k)
+screen = Tk()
+screen.minsize(width=350,height=150)
+screen.title("Mile to Km Converter")
+
+mile = Entry(width=20)
+label1 = Label(text="Miles",font=("Arial",15,"bold"))
+label2 = Label(text="is equal to",font=("Arial",15,"bold"))
+km = Label(text="0",font=("Arial",15,"bold"))
+label3 = Label(text="Km",font=("Arial",15,"bold"))
+calc_but = Button(text="Calculate",command=calculate)
+mile.grid(row=0,column=1,padx=10,pady=10)
+label1.grid(row=0,column=2,padx=10,pady=10)
+label2.grid(row=1,column=0,padx=10,pady=10)
+km.grid(row=1,column=1,padx=10,pady=10)
+label3.grid(row=1,column=2,padx=10,pady=10)
+calc_but.grid(row=2,column=1,padx=10,pady=10)
+screen.mainloop()

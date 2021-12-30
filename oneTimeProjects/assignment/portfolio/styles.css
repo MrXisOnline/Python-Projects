@@ -1,0 +1,128 @@
+body{
+	padding: 0%;
+	margin: 0%;
+}
+.top-floor{
+	padding: 4% 2% 0 2%;
+	background-color: #ffc93c;
+}
+.welcome-text{
+	padding-top: 90px;
+	padding-left: 60px;
+	width: 200px;
+	text-align: left;
+	font-family: 'Merriweather Sans', sans-serif;
+	font-size: 35px;
+	font-weight: bold;
+}
+.face{
+	text-align: center;
+}
+.top1{
+	text-align: center;
+}
+.intro-part{
+	padding: 2%;
+	background-color: #dbf6e9;
+	text-align: center;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 40px;
+	/*font-weight: bold;*/
+}
+.skills-part{
+	text-align: center;
+	background-color: #9ddfd3;
+	padding: 2%;
+}
+#code-in-text{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 25px;
+	margin: 30px
+}
+.skill-language-part{
+	padding: 1%;
+}
+#skill-text{
+	font-weight: bold;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 40px;
+	margin: 15px;
+}
+#java{
+	position: relative;
+	right: 25px;
+	top: 20px;
+	transform: rotate(-35deg);
+}
+#py{
+	position: relative;
+	bottom: 25px;
+}
+#csh{
+	position: relative;
+	left: 25px;
+	top: 20px;
+	transform: rotate(40deg);
+}
+#net{
+	position: relative;
+	left: 30px;
+	top: 5px;
+	transform: rotate(-25deg);
+}
+#php{
+	position: relative;
+	right: 30px;
+	transform: rotate(25deg);
+}
+#as{
+	margin: 10px;
+}
+#wd{
+	margin: 10px;
+}
+.sum-up{
+	text-align: center;
+	padding: 1%;
+	background-color: #9ddfd3;
+}
+.sum-text{
+	display: inline-block;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 35px;
+	font-weight: bolder;
+}
+#also-text{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 30px;
+}
+#profess-text{
+	margin: 2%;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 20px;
+}
+.work-floor{
+	text-align: center;
+	padding: 4%;
+	background-color: #31326f;
+}
+.work-ex{
+	font-family: 'Ubuntu', sans-serif;
+	margin: 4% auto 4%;
+}
+#work-start-text{
+	color: white;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 20px;
+}
+.bottom-floor{
+	font-family: 'Ubuntu', sans-serif;
+	text-align: center;
+	padding-top: 2%;
+	padding-bottom: 1%;
+}
+.fab{
+	margin: 10px;
+	font-size: 30px;
+	color: black;
+}

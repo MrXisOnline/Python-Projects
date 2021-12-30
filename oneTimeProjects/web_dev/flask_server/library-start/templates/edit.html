@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Rating</title>
+</head>
+<body>
+    <p>Book Name:&Tab;{{ book_name }}</p>
+    <p>Current Rating:&Tab;{{ rating }}</p>
+    <form action="/edit" method="post">
+        <label>Rating:&Tab;</label>
+        <input name="rating" type="text">
+        <textarea hidden name="id">{{ idx }}</textarea>
+        <button type="submit">Change</button>
+    </form>
+</body>
+</html>

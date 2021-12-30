@@ -1,0 +1,28 @@
+<div class="modal-body">
+              {% if t['item-exist'] %}
+                <div class="all-items">
+                  {% for i in t['item'] %}
+                    {% set i_id = i['id'] %}
+                    <div class="item{{ i_id }}">
+                      <p>{{ i['name'] }}</p>
+                      <a class="btn btn-primary collapsed" data-toggle="collapse" href="#itemed{{ i_id }}" role="button" aria-expanded="false" aria-controls="itemed{{ i_id }}">
+                        End-Date
+                      </a>
+                      <div class="collapse" id="itemed{{ i_id }}" style="">
+                        <div class="card card-body">
+                          {{ i['ed'] }}
+                        </div>
+                      </div>
+                      <a class="btn btn-primary collapsed" data-toggle="collapse" href="#itemcd{{ i_id }}" role="button" aria-expanded="false" aria-controls="itemcd{{ i_id }}">
+                        Creation-Date
+                      </a>
+                      <div class="collapse" id="itemcd{{ i_id }}" style="">
+                        <div class="card card-body">
+                          {{ i['cd'] }}
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>

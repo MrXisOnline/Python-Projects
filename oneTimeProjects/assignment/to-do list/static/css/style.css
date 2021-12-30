@@ -1,0 +1,55 @@
+.navbar-brand{
+	padding-left: 20px;
+	font-weight: bold;
+}
+/*.navbar{
+	padding-left: 20px;
+}*/
+.nav-item{
+	margin: 10px;
+}
+.ctdiv{
+	padding: 40px;
+	text-align: center;
+}
+.site-heading h1{
+	font-family: 'Righteous', cursive;
+	font-weight: bolder;
+	font-size: 40px;
+}
+.subheading{
+	color: #452c63;
+}
+body{
+	font-family: 'Ubuntu', sans-serif;
+	background-color: #f7f6e7;
+}
+header{
+	background-color: #e7e6e1;
+}
+.all-tasks{
+	text-align: center;
+	padding: 20px;
+}
+.task{
+	margin: 20px;
+	padding: 10px;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 10px;
+}
+.task-part{
+	margin: 10px;
+}
+footer{
+	padding: 20px;
+	text-align: center;
+	background-color: #dfe0df;
+}
+.index-con{
+	margin: 50px;
+	padding: 20px;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 10px;
+}

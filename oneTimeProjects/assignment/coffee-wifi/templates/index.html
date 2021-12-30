@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="icon" href="static/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/index_styling.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Ubuntu&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="Heading-part">
+        <h1>Cafe-Coffee-Finder</h1>
+    </div>
+    <div class="cafes-part">
+        <h3 style="color: white">Cafes Near You...</h3>
+        {% for k in get_keys(data) %}
+            <div class="cafes">
+                <img src="{{ data[k]['img_url'] }}" width="300" height="240">
+                <p>{{ data[k]['name'] }} At {{ data[k]['location'] }}<br>
+                    {% set map_loc = data[k]['map_url'] %}
+                    <button onclick="location.href = '{{ map_loc }}';" type="button" class="btn btn-info">G-Maps</button>
+                    {% set b_id = data[k]['id'] %}
+                    <a class="btn btn-primary" data-toggle="collapse" href="#dt{{ b_id }}" role="button" aria-expanded="true" aria-controls="collapseExample">
+                    Details
+                    </a>
+                    <a class="btn btn-danger" data-toggle="collapse" href="#dl{{ b_id }}" role="button" aria-expanded="true" aria-controls="collapseExample">
+                    Delete
+                    </a>
+                    <a class="btn btn-secondary" data-toggle="collapse" href="#up{{ b_id }}" role="button" aria-expanded="true" aria-controls="collapseExample">
+                    Edit Price
+                    </a>
+                    <div class="collapse" id="dt{{ b_id }}">
+                      <div class="card card-body">
+                        Seats : {{ data[k]['seats'] }}<br>
+                        Coffee-Price : {{ data[k]['has_toilet'] }}
+                      </div>
+                    </div>
+                    <div class="collapse" id="dl{{ b_id }}">
+                      <div class="card card-body">
+                        <form action="/delete/{{ b_id }}" method="post">
+                            <div class="form-group">
+                                <label for="exampleInputEmail{{ b_id }}">Deletion-Key</label>
+                                <input name="api-key" type="text" class="form-control" aria-describedby="remainder{{ b_id }}" placeholder="Enter key">
+                                <small id="remainder{{ b_id }}" class="form-text text-muted">Take a Look back are you sure about that!!</small>
+                            </div>
+                            <button type="submit" class="btn btn-warning">Do it</button>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="collapse" id="up{{ b_id }}">
+                      <div class="card card-body">
+                        <form action="/update-price/{{ b_id }}" method="post">
+                            <div class="form-group">
+                                <label>New Price</label>
+                                <input name="new-prize" type="text" class="form-control" aria-describedby="uremainder{{ b_id }}" placeholder="Enter prize">
+                                <small id="uremainder{{ b_id }}" class="form-text text-muted">Take a Look back are you sure about that!!</small>
+                            </div>
+                            <button type="submit" class="btn btn-warning">Do it</button>
+                        </form>
+                      </div>
+                    </div>
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="bottom-part">
+        <p>
+            &copy;Suraj Gupta 2021
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+#title{
+	background-color: #ff4c68;
+	height: 750px;
+}
+#phone-image{
+	width: 370px;
+	transform: rotate(20deg);
+	position: relative;
+}
+#features{
+	background-color: #fff;
+	position: relative;
+	z-index: 1;
+}
+#phone-context{
+	font-size: 3rem;
+	line-height: 1.5;
+	color: white;
+	margin-top: 1em;
+}
+#cf1{
+	padding: 0% 15% 3% 15%;
+}
+#nv-brand{
+	font-family: "Ubuntu";
+	font-size: 2em;
+}
+.navbar{
+	margin-bottom: 40px;
+	padding: 0 0 4.5rem;
+	/*font-size: 20px;*/
+}
+.navbar-nav li{
+	padding: 18px;
+}
+body{
+	font-family: "Montserrat";
+}
+.d-btn{
+	margin: 20px 10px 20px;
+}
+.f-icon{
+	font-size: xxx-large;
+	color: #ef8172;
+	margin: 13px;
+}
+.f-icon:hover{
+	color: #ff4c68;
+}
+.div-i{
+	text-align: center;
+	padding: 10% 3%;
+}
+.div-i h3{
+	font-weight: bold;
+}
+p{
+	color: #8f8f8f;
+}
+#testimonials{
+	text-align: center;
+	color: #fff;
+	background-color: #ef8172;
+}
+#testimonials img{
+	width: 10%;
+	border-radius: 50%;
+	margin: 2%;
+}
+#press{
+	text-align: center;
+	background-color: #ef8172;
+	padding-bottom: 3%;
+}
+#press img{
+	width: 15%;
+	margin: 20px 20px 50px;
+}
+.carousel-inner{
+	padding: 7% 15%;
+}
+#pricing .row{
+	padding: 5% 10%;
+}
+#pricing{
+	text-align: center;
+	padding-top: 5%;
+}
+.pricing-col{
+	padding: 2% 3%;
+}
+@media (max-width: 1024px){
+	#phone-image{
+		padding-top: 40px;
+		transform: rotate(0deg);
+	}
+	#title{
+		height: 1000px;
+		text-align: center;
+	}
+}
+@media (max-width: 1024px){
+	#title{
+		height: 1250px;
+		text-align: center;
+	}
+}
+#cta{
+	padding: 5% 15%;
+	background-color: #ff4c68;
+	text-align: center;
+}
+#cta h3{
+	color: #fff;
+	font-weight: bold;
+	font-size: 30px;
+}
+#footer{
+	text-align: center;
+	padding: 5% 40% 2%;
+}
+#footer i{
+	padding: 4%;
+}

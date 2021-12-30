@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Color Palette</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+<body>
+<header class="masthead" style="background-image: url('static/head-img.jpg'); height: 300px;">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading" style="text-align:center; padding-top: 100px">
+            <h1>Color Palette</h1>
+            <span class="subheading">get colors from images.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+ </header>
+ {% if photo %}
+<div class="color-palette">
+	<h1>Here are the major colors was in image...</h1>
+	{% for c in colors %}
+	<p class="colorcom">{{ c }}</p>
+	<div class="color" style="background-color: rgb{{ c }};">
+	</div>
+	{% endfor %}
+</div>
+ {% else %}
+ <div class="upload-part">
+ 	<h1>click to upload</h1>
+ 	<form action="/" method="post" enctype = "multipart/form-data">
+	 	<label class="b_img" for="file-upload" class="custom-file-upload">
+		     <i class="fas img-but fa-download"></i>
+		</label>
+		<input name="img" id="file-upload" type="file"/><br>
+	 	<button>submit</button>
+ 	</form>
+ </div>
+ {% endif %}
+</body>
+</html>

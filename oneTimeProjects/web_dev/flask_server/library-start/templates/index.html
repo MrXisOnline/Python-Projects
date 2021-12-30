@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+</head>
+<body>
+<h1>My Library</h1>
+    {% if msg != "" %}
+    <p>{{ msg }}</p>
+    {% else %}
+    <ul>
+        {% for book in books %}
+        <li id="{{ loop.index }}">
+            <a href="/del/{{ id[loop.index-1] }}" >DELETE</a>
+            {{ book }}
+             <a href="/set_rating/{{ id[loop.index-1] }}" >EDIT Rating</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
+<a href="/add">Add New Book</a>
+</body>
+</html>

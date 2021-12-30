@@ -1,0 +1,151 @@
+{% include "header.html" %}
+
+<header class="masthead" style="background-image: url('static/check.jpg'); height: 300px;">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading" style="text-align:center; padding-top: 100px">
+            <h1>To-Do List</h1>
+            <span class="subheading">set a list of work and get organized.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+ </header>
+
+{% if task %}
+<div class="all-tasks container">
+  <h1>Your TaskLists</h1>
+  {% for t in tasks %}
+    {% set t_id = t['id'] %}
+    <div class="task{{ t_id }} task row">
+      <button type="button" class="btn btn-primary task-part col" data-toggle="modal" data-target="#taskid{{ t_id }}">
+        {{ t['name'] }}
+      </button>
+      <a class="btn btn-primary collapsed task-part col" data-toggle="collapse" href="#tasked{{ t_id }}" role="button" aria-expanded="false" aria-controls="tasked{{ t_id }}">
+        End-Date
+      </a>
+      <a class="btn btn-primary collapsed task-part col" data-toggle="collapse" href="#taskcd{{ t_id }}" role="button" aria-expanded="false" aria-controls="taskcd{{ t_id }}">
+        Creation-Date
+      </a>
+      <a style="padding-top: 20px;" class="col" href="/del-task/{{t_id}}"><i class="far fa-times-circle"></i></a>
+      <div class="collapse" id="tasked{{ t_id }}" style="">
+        <div class="card card-body">
+          {{ t['ed'] }}
+        </div>
+      </div>
+      <div class="collapse" id="taskcd{{ t_id }}" style="">
+        <div class="card card-body">
+          {{ t['cd'] }}
+        </div>
+      </div>
+      <div class="modal fade" id="taskid{{ t_id }}" tabindex="-1" role="dialog" aria-labelledby="tasklabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="tasklabel">{{ t['name'] }} items</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              {% if t['item-exist'] %}
+                <div class="all-items container">
+                  {% for i in t['items'] %}
+                    {% set i_id = i['id'] %}
+                    <div class="item{{ i_id }} row">
+                        {% if i['status'] %}
+                          <input onclick="location.href='/up-status/{{ i_id }}/1'" style="display: inline;width: 30px;height: 30px;" checked class="col" type="checkbox" name="status">
+                        {% else %}
+                          <input onclick="location.href='/up-status/{{ i_id }}/0'" style="display: inline;width: 30px;height: 30px;" class="col" type="checkbox" name="status">
+                        {% endif %}
+                      <p class="col">{{ i['name'] }}</p>
+                      <a class="btn btn-primary collapsed col" data-toggle="collapse" href="#itemed{{ i_id }}" role="button" aria-expanded="false" aria-controls="itemed{{ i_id }}">
+                        End-Date
+                      </a>
+                      <a class="btn btn-primary collapsed col" data-toggle="collapse" href="#itemcd{{ i_id }}" role="button" aria-expanded="false" aria-controls="itemcd{{ i_id }}">
+                        Creation-Date
+                      </a>
+                      <a class="col" href="/del-item/{{i_id}}"><i class="far fa-times-circle"></i></a>
+                      <div class="collapse" id="itemcd{{ i_id }}" style="">
+                        <div class="card card-body">
+                          {{ i['cd'] }}
+                        </div>
+                      </div>
+                      <div class="collapse" id="itemed{{ i_id }}" style="">
+                        <div class="card card-body">
+                          {{ i['ed'] }}
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+                {% endif %}
+                <div class="ctdiv">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createitemp">
+                    Add Items into List
+                  </button>
+                </div>
+                <div class="modal fade" id="createitemp" tabindex="-1" role="dialog" aria-labelledby="addtasklabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="addtasklabel">Item Name</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <form action="/add-item/{{ t_id }}" method="post">
+                        <div class="modal-body">
+                          <input type="text" width="50" name="item-name"><br>
+                          <input type="date" name="ie-date">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-success">Save changes</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endif %}
+<div class="ctdiv">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createtaskp">
+  Add TaskList
+</button>
+</div>
+<div class="modal fade" id="createtaskp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Task-List Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/add-task" method="post">
+        <div class="modal-body">
+          <input placeholder="Task Name" required type="text" width="50" name="task-name"><br><br>
+          <input placeholder="End Date" required type="date" name="e-date">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% include "footer.html" %}

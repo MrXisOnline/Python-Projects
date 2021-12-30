@@ -1,0 +1,41 @@
+body{
+	background-color: #00DBDE;
+	background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+	margin: 0%;
+}
+
+#p_div{
+	background-color: #F0FFFF;
+	width: 400px;
+	height: 550px;
+	margin: 130px auto 0px auto;
+	border-radius: 10%;
+}
+#profile{
+	margin: 60px auto 0px auto;
+	border-radius: 50%;
+}
+#left{
+	margin-right: : 20px;
+	display: inline-block;
+	position: relative;
+	top: 25px;
+	width: 130px;
+}
+#right{
+	position: relative;
+	top: 25px;
+	display: inline-block;
+	width: 130px;
+}
+#table2{
+	position: relative;
+	top: 20px;
+}
+footer{
+	font-size: 25px;
+	text-align: center;
+	margin-top: 173px;
+	height: 60px;
+	background-color: #FFFAFA;
+}
