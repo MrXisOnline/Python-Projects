@@ -49,12 +49,30 @@ def delete_record(data, cursor, connection):
 		raise Exception("Input Error")
 
 
-conn = sqlite3.connect("phonerecords.db")
+def check_name(n_str=''):
+	num = "0123456789"
+	name_str = ""
+	for i in n_str:
+		if i in num:
+			pass
+		else:
+			name_str = name_str + i
+	return name_str
+
+
+def check_number(num=''):
+	if num.isnumeric():
+		return num
+	else:
+		return '0000000000'
+
+
+conn = sqlite3.connect("phone_record.db")
 c = conn.cursor()
 
 while True:
 	try:
-		print("PHONEBOOK".center(55,"*"))
+		print("PHONEBOOK".center(55, "*"))
 		print("\n")
 		print("1. Show Data")
 		print("2. Insert Data")
@@ -65,9 +83,9 @@ while True:
 			show_record(c, conn)
 		elif i == 2:
 			print("Enter The Data You Need To Insert")
-			name = add_single_quote(input("Name :"))
+			name = add_single_quote(check_name(input("Name :")))
 			addr = add_single_quote(input("Address :"))
-			number = add_single_quote(input("Phone No. :"))
+			number = add_single_quote(check_number(input("Phone No. :")))
 			data = (name, addr, number)
 			insert_record(data, c, conn)
 			print("Inserted Record")
@@ -80,7 +98,7 @@ while True:
 			print("Exiting Phonebook")
 			break
 		else:
-			print("Enter Between [1,2,3,4] ",end="")
+			print("Enter Between [1,2,3,4] ", end="")
 			raise Exception("Input Error")
 	except KeyboardInterrupt:
 		sys.exit(0)
@@ -88,5 +106,4 @@ while True:
 		print("Error Occured!!!")
 
 
-#conn.commit()
 conn.close()
